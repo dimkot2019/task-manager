@@ -1,0 +1,15 @@
+{
+  "name": "task-manager",
+  "version": "0.0.1",
+  "description": "Менеджер задач",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Дмитрий",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
