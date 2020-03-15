@@ -1,26 +1,86 @@
+
+<!--<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <!-- <div>
+        <p id="p-1">
+            Абзац 1:
+            Я из лесу вышел,
+            был сильный мороз...
+        </p>
+    </div>
+    <div>
+        <p id="p-2">Абзац 2:</p>
+    </div>
+    <div>
+        <p id="p-3">Абзац 3:</p>
+    </div> -->
+    <!-- <script src="script.js"></script> -->
+    <!--<script src="./task-manager/temp.js"></script>-->
+    <!--<script src="./lesson/10-dom-events.js"></script>
+</body>
+
+</html>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="utf-8">
+    <title>Task-manager</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
-  <label>
-    key:
-    <input id="key">
-  </label>
-  <label>
-    value:
-    <input id="value">
-  </label>
-  <button id="send_btn">send</button>
-
-  <hr/>
-
-  <button id="show_all">show all</button>
-  <div id="container"></div>
-
-  <script src="temp.js"></script>
+<form>
+<table>
+    <tr>
+        <td>
+            <a href="#add-task" class="open">+ добавить задачу</a>
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <label>
+            <input type="text" class="task" id="area" placeholder="Тема задачи">
+            <a onclick="area.value=''" class="close2">X</a>
+                </label>
+            <br>
+            <span class="description"> Описание </span>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<div id="add-task">
+    <div class="modal">
+        <label> тема задачи <a href="#" class="close">X</a>
+            <input type="text" id="subTask">
+        </label>
+            <label> описание <br>
+                <textarea id="spec" rows="2" cols="23" class="message"></textarea>
+            </label>
+            <label> дата <br>
+                <input type="date" >
+            </label>
+            <hr/>
+            <label>
+                <input type="submit" value="сохранить">
+                <input type="reset" value="отмена">
+            </label>
+    </div>
+</div>
+</form>
 </body>
 </html>
+

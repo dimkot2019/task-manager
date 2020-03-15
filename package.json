@@ -4,7 +4,7 @@
   "description": "Менеджер задач",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server"
+    "start": "lite-server -c bs-config.json"
   },
   "author": "Дмитрий",
   "license": "ISC",
