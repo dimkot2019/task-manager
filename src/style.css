@@ -1,79 +1,19 @@
-#add-task {
-    display: none;
-    width: 100%;
+@import url('./components/page/Page.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-#add-task:target {
-    display: block;
-}
-.open {
-    display: inline-block;
-    border: 1px solid black;
-    text-decoration: none;
-    margin-left: 30px;
-}
-.modal {
-    width: 200px;
-    height: 185px;
-    text-align: center;
-    padding: 2px;
-    border: 2px solid black;
-    color: black;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    background: #fff;
-    margin-bottom: 5px;
 }
 
-.task {
-    display: inline-block;
-    border: 1px solid black;
-    text-decoration: none;
-    margin-left: 30px;
-
-}
-.description {
-    width: 740px;
-    display: inline-block;
-    border: 1px solid black;
-    margin-left: 30px;
-    margin-top: 5px;
-    padding-bottom: 5px;
-
-}
-.close {
-    display: inline-block;
-    float: right;
-    text-decoration: none;
-    font-size: 14pt;
-}
-.close2 {
-    display: inline-block;
-    float: right;
-
-
-}
-.message {
-    resize: none;
-}
-
-table {
-    border: 1px solid grey;
-    width: 100%;
-    border-collapse: collapse;
-}
-tr {
-    border: 1px solid grey;
-}
-td {
-    height: 70px;
+button {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
 }
 
 
