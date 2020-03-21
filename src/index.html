@@ -10,12 +10,14 @@
 <body>
 <header class="HeaderPage">
     <h1 class="HeaderPage__title">Task Manager ver. 1.0.0</h1>
+    <a href="#add-task" >
     <button class="Button">
             <span class="Button__icon">
                 <i class="fa fa-plus-square-o" aria-hidden="true"></i>
             </span>
-        <span class="Button__text">Добавить задачу</span>
+            <span class="Button__text">Добавить задачу</span>
     </button>
+    </a>
 </header>
 <section class="TasksList">
     <div class="Task">
@@ -77,6 +79,33 @@
             <span class="Task__date">15.02.1980</span>
         </div>
     </div>
+
+
+<div id="add-task">
+    <div class="Modal">
+        <div class="Modal__header">
+            <h1 class="Modal__headerTitle">Создание задачи</h1>
+            <a href="#" class="Modal__exit">
+            <i class="fa fa-window-close" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="Modal__body">
+            <h1 class="Modal__bodyTitle1"> Тема задачи </h1>
+              <input type="text" placeholder="Тема">
+              <br>
+            <h1 class="Modal__bodyTitle2"> Описание </h1>
+               <textarea class="Message" rows="6" placeholder="Тема"></textarea>
+              <br>
+            <h1 class="Modal__bodyTitle3"> Дата </h1>
+               <input type="date">
+        </div>
+            <br>
+        <div class="Modal__footer">
+               <input class="SaveTask" type="submit" value="  сохранить задачу  ">
+        </div>
+    </div>
+</div>
+
 </section>
 </body>
 </html>
