@@ -1,4 +1,7 @@
-@import url('./components/page/Page.css');
+@import url('./components/header-page/HeaderPage.css');
+@import url('./components/button/Button.css');
+@import url('./components/icon-button/IconButton.css');
+@import url('./components/tasks-list/TasksList.css');
 @import url('./components/modal/Modal.css');
 
 * {
@@ -16,6 +19,8 @@ button {
     border-radius: 0;
     background-color: transparent;
 }
+
+
 
 
 

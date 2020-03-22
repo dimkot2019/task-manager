@@ -38,8 +38,7 @@
 }
 
 .Modal__exit {
-    color: black;
-    background-color: #fff;
+    font-size: 18px;
 }
 
 .Modal__body {
@@ -72,7 +71,7 @@
 }
 
 .SaveTask {
-    background-color: #028E9B;
+    background-color: #9f638d;
     color: #fff;
     border: none;
     font-size: 12px;
@@ -82,6 +81,6 @@
 }
 
 .SaveTask:hover {
-    background-color: #015C65;
+    background-color: #650212;
     cursor: pointer;
 }
