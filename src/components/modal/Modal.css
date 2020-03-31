@@ -1,18 +1,9 @@
-#add-task {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#add-task:target {
-    display: block;
-    text-decoration: none;
-}
+/*.TasksList, .Task, .HeaderPage {
+    background-color: #634450;
+}*/
 
 .Modal {
+    display: block;
     width: 80%;
     height: 70%;
     border: none;
@@ -37,7 +28,7 @@
     font-weight: bold;
 }
 
-.Modal__exit {
+.Close {
     font-size: 18px;
 }
 
