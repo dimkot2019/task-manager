@@ -4,7 +4,7 @@
     align-items: center;
     height: 100px;
     padding: 0 20px;
-    background-color: #cd92a9;
+    background-color: var(--blackberry);
 }
 
 .HeaderPage__title {

@@ -1,6 +1,9 @@
 :root {
     --white: #fff;
-    --light: ;
+    --gray:  rgba(102, 102, 102, 0.8);
+    --blackberry: #cd92a9;
+    --purple: #9f638d;
+    --more-purple: #650212;
     --dark: ;
     --more-dark: ;
     --black: #000;
