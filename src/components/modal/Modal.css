@@ -1,15 +1,14 @@
-.Shading {
+.Modal {
     display: none;
     background-color: var(--gray);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
-    
+    left: 0;  
 }
 
-.Modal {
+.Modal__window {
     display: none;
     width: 80%;
     height: 70%;
@@ -30,13 +29,9 @@
     padding: 20px 20px 0 20px;
 }
 
-.Modal__headerTitle {
+.Modal__title {
     font-size: 18px;
     font-weight: bold;
-}
-
-.Close {
-    font-size: 18px;
 }
 
 .Modal__body {
@@ -45,7 +40,7 @@
     margin: 10px 20px;
 }
 
-.Modal__bodyTitle, h1 {
+.Modal__topic, h1 {
     font-size: 14px;
     font-weight: bold;
 }
@@ -56,19 +51,4 @@
 
 .Modal__footer {
     margin-left: 20px;
-}
-
-.SaveTask {
-    background-color: var(--purple);
-    color: var(--white);
-    border: none;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 5px 0;
-}
-
-.SaveTask:hover {
-    background-color: var(--more-purple);
-    cursor: pointer;
 }

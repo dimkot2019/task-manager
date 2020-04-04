@@ -6,7 +6,7 @@
 }
 
 .Button:hover {
-    background-color: var(--more-purple);
+    background-color: var(--morePurple);
     cursor: pointer;
 }
 

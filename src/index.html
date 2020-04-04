@@ -12,7 +12,7 @@
 <body>
     <header class="HeaderPage">
         <h1 class="HeaderPage__title">Task Manager ver. 1.0.0 </h1>
-            <button id="myButton" class="Button">
+            <button type="button" id="myButton" class="Button">
                 <span class="Button__icon">
                     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
                 </span>
@@ -24,10 +24,10 @@
             <div class="Task__header">
                 <h2 class="Task__title">Задача №1</h2>
                 <div class="Task__controls">
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -39,15 +39,14 @@
                 <span class="Task__date">01.04.2020</span>
             </div>
         </div>
-
         <div class="Task">
             <div class="Task__header">
                 <h2 class="Task__title">Задача №2</h2>
                 <div class="Task__controls">
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -59,15 +58,14 @@
                 <span class="Task__date">01.04.2020</span>
             </div>
         </div>
-
         <div class="Task">
             <div class="Task__header">
                 <h2 class="Task__title">Задача №3</h2>
                 <div class="Task__controls">
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                    <button class="IconButton">
+                    <button type="button" class="IconButton">
                         <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -79,16 +77,16 @@
                 <span class="Task__date">01.04.2020</span>
             </div>
         </div>
-          <div id="myShading" class="Shading">
-            <div id="myModal" class="Modal">
+          <div id="myModal" class="Modal">
+            <div id="myModal__window" class="Modal__window">
                 <div class="Modal__header">
-                    <h1 class="Modal__headerTitle">Создание задачи</h1>
-                    <span class="Close">
+                    <h1 class="Modal__title">Создание задачи</h1>
+                    <button type="button" id="closeModal__window" class="IconButton">
                         <i class="fa fa-times" aria-hidden="true"></i>
-                    </span>
+                    </button>
                 </div>
                 <div class="Modal__body">
-                    <h1 class="Modal__bodyTitle"> Тема задачи </h1>
+                    <h1 class="Modal__topic"> Тема задачи </h1>
                     <input type="text" placeholder="Тема">
                     <br>
                     <h1> Описание </h1>
@@ -101,12 +99,13 @@
                 </div>
                 <br>
                 <div class="Modal__footer">
-                    <input class="SaveTask" type="submit" value="  сохранить задачу  ">
+                    <button type="submit" id="saveTaskButton" class="Button">
+                        <span class="Button__text">сохранить задачу</span>
+                    </button>
                 </div>
             </div>
           </div>
     </section>
     <script src="script.js"></script>
 </body>
-
 </html>

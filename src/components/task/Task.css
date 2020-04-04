@@ -1,6 +1,6 @@
 .Task {
-    background-color: #cd92a9;
-    border: 1px solid #65020b;
+    background-color: var(--blackberry);
+    border: 1px solid var(--morePurple);
     margin: 10px 0;
     padding: 10px 20px;
 }

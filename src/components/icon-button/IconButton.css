@@ -4,5 +4,5 @@
 
 .IconButton:hover {
     cursor: pointer;
-    color: var(--white);
+    color: var(--gray);
 }

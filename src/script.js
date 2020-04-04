@@ -1,23 +1,30 @@
-let shading = document.getElementById('myShading');
 let modal = document.getElementById('myModal');
-let button = document.getElementById("myButton");
-let span = document.getElementsByClassName("Close")[0];
-let savetask = document.getElementsByClassName("SaveTask")[0];
-button.onclick = () => {
+let modal__window = document.getElementById('myModal__window');
+let button = document.getElementById('myButton');
+let span = document.getElementById('closeModal__window');
+let savetask = document.getElementById('saveTaskButton');
+button.onclick() = showModal();
+ showModal = () => {
+    modal__window.style.display = "block";
     modal.style.display = "block";
-    shading.style.display = "block";
-  }
+  };
+/*const closeModa = () => {
+    modal__window.style.display = "none";
+    modal.style.display = "none";
+  };*/
+/*button.onclick = () => {
+    modal__window.style.display = "block";
+    modal.style.display = "block";
+  };*/
 span.onclick = () => {
+    modal__window.style.display = "none";
     modal.style.display = "none";
-    shading.style.display = "none";
-  }
+  };
 savetask.onclick = () => {
+    modal__window.style.display = "none";
     modal.style.display = "none";
-    shading.style.display = "none";
-  }
-  
-shading.onclick = () => {
-      modal.style.display = "none";
-      shading.style.display = "none";
-    
-  }
+  };
+modal.onclick = () => {
+      modal__window.style.display = "none";
+      modal.style.display = "none"; 
+  };
