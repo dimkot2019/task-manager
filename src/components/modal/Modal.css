@@ -1,23 +1,19 @@
 .Modal {
     display: none;
+    justify-content: center;
+    align-items: center;
     background-color: var(--gray);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;  
 }
 
 .Modal__window {
-    display: none;
     width: 80%;
     height: 70%;
     border: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     margin: auto;
     background-color: var(--white);
     color: var(--black);
