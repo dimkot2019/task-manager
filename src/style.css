@@ -3,6 +3,7 @@
 @import url('./components/icon-button/IconButton.css');
 @import url('./components/tasks-list/TasksList.css');
 @import url('./components/modal/Modal.css');
+@import url('./configs/Variable.css');
 
 * {
     padding: 0;
@@ -19,12 +20,3 @@ button {
     border-radius: 0;
     background-color: transparent;
 }
-
-
-
-
-
-
-
-
-

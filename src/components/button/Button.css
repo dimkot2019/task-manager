@@ -1,12 +1,12 @@
 .Button {
     height: 40px;
     padding: 0 15px;
-    background-color: #9f638d;
-    color: #fff;
+    background-color: var(--purple);
+    color: var(--white);
 }
 
 .Button:hover {
-    background-color: #650212;
+    background-color: var(--morePurple);
     cursor: pointer;
 }
 
