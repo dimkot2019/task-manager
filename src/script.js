@@ -14,7 +14,7 @@ taskModal.addEventListener('click', (event) => {
     if (event.target === taskModal) {
         hideModal();
     }
-});   
+});  
 saveTaskButton.addEventListener('click', hideModal);   
 
 
