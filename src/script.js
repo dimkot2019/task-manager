@@ -1,13 +1,13 @@
-let modal = document.getElementById('myModal');
-let modal__window = document.getElementById('myModal__window');
-let button = document.getElementById('myButton');
-let span = document.getElementById('closeModal__window');
+let modal = document.getElementById('taskModal');
+let modal__window = document.getElementById('taskModalWindow');
+let button = document.getElementById('addTaskButton');
+let span = document.getElementById('closeModalButton');
 let savetask = document.getElementById('saveTaskButton');
-/*button.onclick = showModal();
- showModal = () => {
+/*const showModal = () => {
     modal__window.style.display = "block";
     modal.style.display = "block";
-  };*/
+  };
+  button.onclick() = showModal();*/
 button.onclick = () => {
     modal__window.style.display = "block";
     modal.style.display = "block";
