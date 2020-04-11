@@ -4,12 +4,18 @@
   "description": "Менеджер задач",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server -c bs-config.json"
+    "start": "webpack-dev-server",
+    "build": "webpack --mode=production"
   },
   "author": "Дмитрий",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {
-    "lite-server": "^2.5.4"
-  }
+  "devDependencies": {
+    "css-loader": "^3.5.1",
+    "html-webpack-plugin": "^4.0.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {}
 }
