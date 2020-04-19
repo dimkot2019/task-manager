@@ -26,7 +26,6 @@ addTaskButton
 modalWindow
     .on('submit', data => {
         const status = storeService.getFormStatus();
-        console.log(data);
         switch (status) {
             case FORM_STATUS.CREATE: {
                 taskList.addTask(data);
