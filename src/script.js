@@ -1,4 +1,4 @@
-const taskModal = document.getElementById('taskModal');
+/*const taskModal = document.getElementById('taskModal');
 const addTaskButton = document.getElementById('addTaskButton');
 const closeModalButton = document.getElementById('closeModalButton');
 const saveTaskButton = document.getElementById('saveTaskButton');
@@ -15,6 +15,6 @@ taskModal.addEventListener('click', (event) => {
         hideModal();
     }
 });  
-saveTaskButton.addEventListener('click', hideModal);   
+saveTaskButton.addEventListener('click', hideModal);*/   
 
 
