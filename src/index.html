@@ -12,73 +12,17 @@
 <body>
     <header class="HeaderPage">
         <h1 class="HeaderPage__title">Task Manager ver. 1.0.0 </h1>
-            <button type="button" id="addTaskButton" class="Button">
+            <button type="button"  class="Button AddTaskButton">
                 <span class="Button__icon">
                     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
                 </span>
                 <span class="Button__text">Добавить задачу</span>
             </button>
     </header>
-    <section class="TasksList">
-        <div class="Task">
-            <div class="Task__header">
-                <h2 class="Task__title">Задача №1</h2>
-                <div class="Task__controls">
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="Task__body">
-                <p class="Task__description">Текст описания задачи</p>
-            </div>
-            <div class="Task__footer">
-                <span class="Task__date">01.04.2020</span>
-            </div>
-        </div>
-        <div class="Task">
-            <div class="Task__header">
-                <h2 class="Task__title">Задача №2</h2>
-                <div class="Task__controls">
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="Task__body">
-                <p class="Task__description">Текст описания задачи</p>
-            </div>
-            <div class="Task__footer">
-                <span class="Task__date">01.04.2020</span>
-            </div>
-        </div>
-        <div class="Task">
-            <div class="Task__header">
-                <h2 class="Task__title">Задача №3</h2>
-                <div class="Task__controls">
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="IconButton">
-                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="Task__body">
-                <p class="Task__description">Текст описания задачи</p>
-            </div>
-            <div class="Task__footer">
-                <span class="Task__date">01.04.2020</span>
-            </div>
-        </div>
+    <section class="TasksList"></section>
           <div id="taskModal" class="Modal">
             <div id="taskModalWindow" class="Modal__window">
+               <form>
                 <div class="Modal__header">
                     <h1 class="Modal__title">Создание задачи</h1>
                     <button type="button" id="closeModalButton" class="IconButton">
@@ -87,24 +31,24 @@
                 </div>
                 <div class="Modal__body">
                     <h1 class="Modal__topic"> Тема задачи </h1>
-                    <input type="text" placeholder="Тема">
+                    <input name="title" type="text" class="Field__input" placeholder="Тема">
                     <br>
                     <h1> Описание </h1>
-                    <textarea class="Message" rows="6" placeholder="Тема"></textarea>
+                    <textarea name="description" class="Field__input Field__input_textarea" rows="6" placeholder="Тема"></textarea>
                     <br>
                     <h1> Дата </h1>
                     <label>
-                        <input type="date">
+                        <input name="date" type="date" class="Field__input">
                     </label>
                 </div>
                 <div class="Modal__footer">
                     <button type="submit" id="saveTaskButton" class="Button">
                         <span class="Button__text">сохранить задачу</span>
                     </button>
+                    <span class="Modal__error"></span>
                 </div>
+               </form>
             </div>
           </div>
-    </section>
-    <script src="script.js"></script>
-</body>
+ </body>
 </html>

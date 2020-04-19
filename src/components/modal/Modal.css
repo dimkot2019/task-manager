@@ -10,6 +10,10 @@
     left: 0;  
 }
 
+.Modal_show {
+    display: flex;
+}
+
 .Modal__window {
     width: 80%;
     height: 70%;
@@ -42,10 +46,20 @@
     font-weight: bold;
 }
 
-.Message {
+.Field__input {
+    font-size: 14px;
+}
+
+.Field__input_textarea {
+    font-size: 14px;
     resize: none;
 }
 
 .Modal__footer {
     margin-left: 20px;
+}
+
+.Modal__error {
+    font-size: 14px;
+    color: var(--red); 
 }
