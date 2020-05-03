@@ -26,29 +26,54 @@ addTaskButton
 modalWindow
     .on('submit', data => {
         const status = storeService.getFormStatus();
+        
         switch (status) {
             case FORM_STATUS.CREATE: {
-                taskList.addTask(data);
+                taskList.addTask(data); 
+                console.log(data); 
+                console.log(storeService.getStore());               
                 break;
             }
             case FORM_STATUS.EDIT: {
                 taskList.updateTask({
                     ...data,
-                    id: storeService.getEditTaskId(),
-                });
+                    id: storeService.getEditTaskId(), 
+                              
+                }); 
+                //console.log({
+                //    ...data, }); 
+                    //console.log(storeService.getStore());  
+                    console.log(storeService.getEditTaskId());           
                 break;
             }
         }
+
+        if (localStorage.getItem('list') === null) {
+            let list = [];
+            list.push(data);
+            localStorage.setItem('list', JSON.stringify(list));        
+          } else {
+            let list = JSON.parse(localStorage.getItem('list'));
+            list.push(data);
+            localStorage.setItem('list', JSON.stringify(list));
+          }
+           
         modal.hide();
+        
         storeService.setCreateForm();
+        
     })
     .on('closeForm', () => {
+        
         modal.hide();
     });
 
 taskList
     .on('editTask', ({id, ...taskInfo}) => {
+        
         modalWindow.put(taskInfo);
-        storeService.setEditForm(id);
-        modal.show();
+         
+        storeService.setEditForm(id); 
+            
+        modal.show();        
     });

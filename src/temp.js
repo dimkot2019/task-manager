@@ -1,6 +1,6 @@
 function appendLocalStorage(key, value) {
   localStorage.setItem(key, value);
-};
+}
 
 const keyInput = document.getElementById('key');
 const valueInput = document.getElementById('value');

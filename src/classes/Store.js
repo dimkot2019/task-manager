@@ -10,13 +10,20 @@ export default class Store {
 
         this.get = function(key) {
             const data = store[key];
+            
             if (data) {
                 return cloneDeep(data);
             }
+            console.log(data);
+            console.log(store[key]);
+        
         };
+        
 
         this.set = function(key, data) {
             store[key] = cloneDeep(data);
+            
+            
         };
     }
 }
