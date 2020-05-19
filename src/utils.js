@@ -45,3 +45,7 @@ export const prepareDate = date => {
     const [year, month, day] = date.split('-');
     return [day, month, year].join('.')
 }
+
+export const generateId = () => {
+    return `f${(+new Date).toString(16)}`;
+};

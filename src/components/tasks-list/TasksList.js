@@ -1,30 +1,10 @@
 import Component from '../../classes/Component.js';
 import Task from '../task/Task';
+import tasksService from '../../services/tasksService';
 
 const CN = {
     TASKS_LIST: 'TasksList',
 };
-
-const TEMP_DATA = [
-    {
-        id: 0,
-        title: 'Задача №1',
-        description: 'Описание задачи',
-        date: '2020-04-01',
-    },
-    {
-        id: 1,
-        title: 'Задача №2',
-        description: 'Описание задачи',
-        date: '2020-04-01',
-    },
-    {
-        id: 2,
-        title: 'Задача №3',
-        description: 'Описание задачи',
-        date: '2020-04-01',
-    },
-];
 
 class TasksList extends Component {
     constructor() {
@@ -51,8 +31,10 @@ class TasksList extends Component {
             task.on('remove', removeTask);
         };
 
-        TEMP_DATA.forEach(taskInfo => {
-            renderTask(taskInfo);
+        tasksService.request().then(tasksList => {
+            tasksList.forEach(taskInfo => {
+                renderTask(taskInfo);
+            });
         });
         
         this.addTask = function(taskInfo) {
