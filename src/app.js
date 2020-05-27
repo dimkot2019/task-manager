@@ -5,45 +5,22 @@ import TaskList from './components/tasks-list/TasksList';
 
 import './app.css';
 import storeService from './services/storeService';
-import {FORM_STATUS} from './consts';
+import {FORM_STATUS, FORM_TITLE} from './consts';
 import tasksService from './services/tasksService';
-import {generateId} from './utils';
 
 const taskList = new TaskList();
 const modal = new Modal();
 const addTaskButton = new AddTaskButton();
 const modalWindow = new Modal__window();
 
-
-const createOrUpdate = (data, status) => {
-    switch (status) {
-        case FORM_STATUS.CREATE: {
-            const dataWithId = {
-                ...data,
-                id: generateId(),
-            };
-            return tasksService.create(dataWithId)
-                .then(() => {
-                    taskList.addTask(dataWithId);
-                });
-        }
-        case FORM_STATUS.EDIT: {
-            const dataWithId = {
-                ...data,
-                id: storeService.getEditTaskId(),
-            };
-            return tasksService.update(dataWithId)
-                .then(() => {
-                    taskList.updateTask(dataWithId);
-                });
-        }
-    }
-    throw new Error(`Не обработанный status - "${status}"`);
-};
-
 modal
     .on('hide', () => {
         modalWindow.clearForm();
+    })
+    .on('show', () => {
+        const status = storeService.getFormStatus();
+        const title = FORM_TITLE[status];
+        modalWindow.setTitle(title);
     });
 
 addTaskButton
@@ -55,25 +32,30 @@ addTaskButton
 modalWindow
     .on('submit', data => {
         const status = storeService.getFormStatus();
-        createOrUpdate(data, status)
-        .then(() => {
-            modal.hide();
-            storeService.setCreateForm();
-        });
+        tasksService.createOrUpdateTask(data, status)
+            .then((dataWithId) => {
+                if (status === FORM_STATUS.CREATE) {
+                    taskList.addTask(dataWithId);
+                }
+                if (status === FORM_STATUS.EDIT) {
+                    taskList.updateTask(dataWithId);
+                }
+                
+                modal.hide();
+                storeService.setCreateForm();
+            });
     })
     .on('closeForm', () => {
         modal.hide();
     });
 
 taskList
-    .on('editTask', ({id, ...taskInfo}) => {
-        
+    .on('editTask', taskInfo => {
         modalWindow.put(taskInfo);
-        storeService.setEditForm(id);
+        storeService.setEditForm(taskInfo.id);
         modal.show(); 
-               
     })
     .on('removeTask', taskInfo => {
-        tasksService.remove(taskInfo.id);
+        tasksService.removeTask(taskInfo.id);
     });
     

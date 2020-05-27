@@ -1,37 +1,68 @@
 import localStorageApi from '../api/localStorageAPI';
+import {isEmpty} from '../utils';
 
-const path = 'API_TASKS';
+const ROUTE = 'TASKS_API';
+
+const findTask = (tasksList, findId) => tasksList.find(task => task.id === findId);
 
 class TasksAPI {
     request() {
-        return localStorageApi.get(path);
+        return localStorageApi.get(ROUTE)
+        .then(tasksList => isEmpty(tasksList) ? [] : tasksList);
     }
 
-    create(data) {
-        this.request().then(taskList => {
-            taskList.push(data);
-            localStorageApi.post(path, taskList);
-        });
+    find(id) {
+        return this.request()
+            .then(tasksList => {
+                const task = findTask(tasksList, id);
+                if (task) {
+                    return task;
+                }
+                throw new Error(`Задача с id "${id}" не найдена`);
+            });
     }
 
-    update(data) {
-        this.request().then(taskList => {
-            const index = taskList.findIndex(task => task.id === data.id);
-            if (index > -1) {
-                taskList.splice(index, 1, data);
-                localStorageApi.post(path, taskList);
-            }
-        });
+    create(taskInfo) {
+        return this.request()
+            .then(tasksList => {
+                const task = findTask(tasksList, taskInfo.id);
+                if (task) {
+                    throw new Error(`Задача с id "${taskInfo.id}" уже создана`);
+                }
+                return localStorageApi.post(ROUTE, [
+                    ...tasksList,
+                    taskInfo,
+                ]);
+            });
     }
 
-    delete(data) {
-        this.request().then(taskList => {
-            const index = taskList.findIndex(task => task.id === data.id);
-            if (index > -1) {
-                taskList.splice(index, 1);
-                localStorageApi.post(path, taskList);
-            }
-        });
+    update(taskInfo) {
+        return this.request()
+            .then(tasksList => {
+                const task = findTask(tasksList, taskInfo.id);
+                if (task) {
+                    return localStorageApi.post(ROUTE, tasksList.map(task => {
+                        if (task.id === taskInfo.id) {
+                            return taskInfo;
+                        }
+                        return task;
+                    }));
+                }
+                throw new Error(`Задача с id "${taskInfo.id}" не найдена`);
+            });
+    }
+
+    delete(id) {
+        return this.request()
+            .then(tasksList => {
+                const task = findTask(tasksList, id);
+                if (task) {
+                    return localStorageApi.post(ROUTE, [
+                        ...tasksList.filter(task => task.id !== id),
+                    ]);
+                }
+                throw new Error(`Задача с id "${id}" не найдена`);
+            });
     }
 }
 

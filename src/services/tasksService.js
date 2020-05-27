@@ -1,73 +1,49 @@
-import localStorageApi from '../api/localStorageAPI';
-import {isEmpty} from '../utils';
-
-const ROUTE = 'TASKS_SERVICE_API';
-
-const findTask = (tasksList, findId) => tasksList.find(task => task.id === findId);
+import tasksApi from '../api/temp';
+import storeService from './storeService';
+import {FORM_STATUS} from '../consts';
+import notifyService from './notifyService';
+import {generateId} from '../utils';
 
 class TasksService {
-    // Возвращает полный список данных
-    request() {
-        return localStorageApi.get(ROUTE)
-            .then(tasksList => isEmpty(tasksList) ? [] : tasksList);
+    loadTasksList() {
+        return tasksApi.request();
     }
 
-    // Возвращает один элемент по id
-    find(id) {
-        return this.request()
-            .then(tasksList => {
-                const task = findTask(tasksList, id);
-                if (task) {
-                    return task;
-                }
-                throw new Error(`Задача с id "${id}" не найдена`);
-            });
+    createOrUpdateTask(data, status) {
+        switch (status) {
+            case FORM_STATUS.CREATE: {
+                const dataWithId = {
+                    ...data,
+                    id: generateId(),
+                };
+                return tasksApi.create(dataWithId)
+                    .then(() => {
+                        notifyService.successNotify('Задача создана');
+                        return dataWithId;
+                    })
+                    .catch(error => notifyService.dangerNotify(error));
+            }
+            case FORM_STATUS.EDIT: {
+                const dataWithId = {
+                    ...data,
+                    id: storeService.getEditTaskId(),
+                };
+                return tasksApi.update(dataWithId)
+                    .then(() => {
+                        notifyService.successNotify('Задача обновлена');
+                        return dataWithId;
+                    })
+                    .catch(error => notifyService.dangerNotify(error));
+            }
+        }
     }
 
-    // Создает таску
-    create(taskInfo) {
-        return this.request()
-            .then(tasksList => {
-                const task = findTask(tasksList, taskInfo.id);
-                if (task) {
-                    throw new Error(`Задача с id "${taskInfo.id}" уже создана`);
-                }
-                return localStorageApi.post(ROUTE, [
-                    ...tasksList,
-                    taskInfo,
-                ]);
-            });
-    }
-
-    // Обновление таски
-    update(taskInfo) {
-        return this.request()
-            .then(tasksList => {
-                const task = findTask(tasksList, taskInfo.id);
-                if (task) {
-                    return localStorageApi.post(ROUTE, tasksList.map(task => {
-                        if (task.id === taskInfo.id) {
-                            return taskInfo;
-                        }
-                        return task;
-                    }));
-                }
-                throw new Error(`Задача с id "${taskInfo.id}" не найдена`);
-            });
-    }
-
-    // Удаление таски
-    remove(id) {
-        return this.request()
-            .then(tasksList => {
-                const task = findTask(tasksList, id);
-                if (task) {
-                    return localStorageApi.post(ROUTE, [
-                        ...tasksList.filter(task => task.id !== id),
-                    ]);
-                }
-                throw new Error(`Задача с id "${id}" не найдена`);
-            });
+    removeTask(id) {
+        return tasksApi.delete(id)
+            .then(() => {
+                notifyService.successNotify('Задача удалена');
+            })
+            .catch(error => notifyService.dangerNotify(error));
     }
 }
 

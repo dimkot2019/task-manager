@@ -4,6 +4,7 @@
 @import url('./components/tasks-list/TasksList.css');
 @import url('./components/modal/Modal.css');
 @import url('./configs/Variable.css');
+@import url('./components/notify/Notify.css');
 
 * {
     padding: 0;

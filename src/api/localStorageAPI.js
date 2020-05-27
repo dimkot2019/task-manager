@@ -37,7 +37,3 @@ const localStorageApi = new LocalStorageAPI();
 
 export default localStorageApi;
 
-
-localStorage.getItem('TASKS_API');
-localStorage.setItem('TASKS_API', 'string data');
-localStorage.removeItem('TASKS_API');
